@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Deals Finder</title>
+    <!-- Link para os ícones (Font Awesome) para usar o símbolo de ligar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0b13; /* Fundo escuro para destacar as imagens e o roxo */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Container das fotos de fundo */
+        .background-games {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            opacity: 0.3; /* Deixa as fotos semi-transparentes para não sumir com o texto */
+            z-index: 1;
+        }
+
+        .game-card {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            filter: grayscale(30%); /* Efeito leve de preto e branco */
+        }
+
+        /* Conteúdo Principal (Texto e Botão) */
+        .content-container {
+            position: relative;
+            z-index: 10; /* Garante que fica na frente das fotos */
+            text-align: center;
+            background: rgba(11, 11, 19, 0.8); /* Fundo sutil atrás do texto para melhorar leitura */
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Nome Game Deals Finder */
+        .title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #8a2be2; /* Roxo */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* Borda preta no texto utilizando text-shadow */
+            text-shadow: 
+                -2px -2px 0 #000,  
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000,
+                 0px  4px 20px rgba(138, 43, 226, 0.6); /* Brilho roxo extra */
+            margin-bottom: 30px;
+        }
+
+        /* Botão Iniciar */
+        .start-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            background: linear-gradient(45deg, #8a2be2, #4b0082);
+            border: 2px solid #000000;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Efeito de passar o mouse no botão */
+        .start-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #a044ff, #6a11cb);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.8);
+        }
+
+        /* Animação simples no ícone de ligar */
+        .start-btn i {
+            font-size: 1.6rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fotos de jogos famosos ao fundo (Substitua as URLs pelas imagens que quiser) -->
+    <div class="background-games">
+        <div class="game-card" style="background-image: url('https://cdn.awsli.com.br/800x800/1264/1264896/produto/310317105/minecraft-01-chne18l6y2.jpg');"></div>
+        <div class="game-card" style="background-image: url('https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png');"></div>
+        <div class="game-card" style="background-image: url('https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/valo2.png');"></div>
+        <div class="game-card" style="background-image: url('https://static.wikia.nocookie.net/cswikia/images/3/37/Cs2_boxart.jpg/revision/latest?cb=20230930151452');"></div>
+        <div class="game-card" style="background-image: url('https://d14d9vp3wdof84.cloudfront.net/image/589816272436/image_vo22bo5gtl7vn1veomh9v6nd2q/-S897-FWEBP');"></div>
+        <div class="game-card" style="background-image: url('https://assets.nintendo.com/image/upload/q_auto/f_auto/store/software/switch/70010000008122/453d17f26995df6bd67d698c90ba2fd27157a61875e1a9730545da23474c6aaf');"></div>
+        <div class="game-card" style="background-image: url('https://upload.wikimedia.org/wikipedia/pt/9/97/COD-IW_%28capa%29.jpeg');"></div>
+        <div class="game-card" style="background-image: url('https://cdn.playtester.io/og/pratfall.jpg');"></div>
+        <div class="game-card" style="background-image: url('https://t.ctcdn.com.br/QKP6GLyhxTlkgjuE0_x6Vgc265U=/1024x576/smart/i706956.jpeg');"></div>
+        <div class="game-card" style="background-image: url('https://midias.correiobraziliense.com.br/_midias/png/2025/09/04/675x450/1_review-larger--3--58992560.png');"></div>
+        <div class="game-card" style="background-image: url('https://cdn-images.dzcdn.net/images/cover/743f10679fbd7de6368b90a3bcfebe06/1900x1900-000000-80-0-0.jpg');"></div>
+        <div class="game-card" style="background-image: url('https://midias.correiobraziliense.com.br/_midias/png/2025/09/04/675x450/1_review-larger--3--58992560.png');"></div>
+    </div>
+
+    <!-- Conteúdo Central -->
+    <div class="content-container">
+        <h1 class="title">Game Deals Finder</h1>
+        
+        <!-- Altere o 'Ofertas De Jogos' para o nome do seu próximo arquivo ou link -->
+        <a href="file:///C:/Users/jumpi/Documents/index.html.html" class="start-btn">
+            <i class="fa-solid fa-power-off"></i> Iniciar
+        </a>
+    </div>
+
+</body>
+</html>
